@@ -23,4 +23,4 @@ To visualize the drone model in RViz:
 ros2 launch droneis_description display.launch.py
 
 To launch the drone in Gazebo:
-ros2 launch droneis_description gazebo.launch.py
+ros2 launch droneis_description gazebo.launch.py 
