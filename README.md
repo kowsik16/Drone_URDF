@@ -23,16 +23,16 @@ rosdep install --from-paths src --ignore-src -r -y
 
 cd ~/your_workspace_name
 
-colcon build --packages-select differential_drive_robot_with_lidar
+colcon build --packages-select Drone_URDF
 
 source install/setup.bash
 
 
 ### Launch in RViz:
 
-ros2 launch differential_drive_robot_with_lidar display.launch.py
+ros2 launch droneis_description display.launch.py
 
 
 ### Launch in Gazebo:
 
-ros2 launch differential_drive_robot_with_lidar gazebo.launch.py
+ros2 launch droneis_description gazebo.launch.py
