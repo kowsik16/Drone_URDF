@@ -1,0 +1,140 @@
+<?xml version="1.0" ?>
+<robot name="droneis" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find droneis_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find droneis_description)/urdf/droneis.ros2control" />
+<xacro:include filename="$(find droneis_description)/urdf/droneis.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-6.269262586567522e-05 -0.00013116503667920555 0.01061473528720346" rpy="0 0 0"/>
+    <mass value="0.22071483189998609"/>
+    <inertia ixx="0.001748" iyy="0.001627" izz="0.003279" ixy="-2e-06" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find droneis_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find droneis_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="prof_left_1">
+  <inertial>
+    <origin xyz="8.03361013851367e-06 6.851232626392534e-06 0.0021931480551776253" rpy="0 0 0"/>
+    <mass value="0.016440807068293553"/>
+    <inertia ixx="0.000001" iyy="0.000001" izz="0.000001" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.15242 -0.1125 -0.038" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find droneis_description)/meshes/prof_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.15242 -0.1125 -0.038" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find droneis_description)/meshes/prof_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="prof_right_1">
+  <inertial>
+    <origin xyz="1.9469921086118225e-05 8.182305304817172e-05 0.0021931242379461396" rpy="0 0 0"/>
+    <mass value="0.016439531064918553"/>
+    <inertia ixx="0.000001" iyy="0.000001" izz="0.000001" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.151692 0.112325 -0.038" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find droneis_description)/meshes/prof_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.151692 0.112325 -0.038" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find droneis_description)/meshes/prof_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="prob_right_1">
+  <inertial>
+    <origin xyz="5.156747642126591e-05 3.58159950117759e-05 0.002193139880176484" rpy="0 0 0"/>
+    <mass value="0.016440369071928952"/>
+    <inertia ixx="0.000001" iyy="0.000001" izz="0.000001" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.152203 0.112325 -0.038" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find droneis_description)/meshes/prob_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.152203 0.112325 -0.038" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find droneis_description)/meshes/prob_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="prob_left_1">
+  <inertial>
+    <origin xyz="4.270158963026738e-05 -4.497679253090414e-06 0.0021931530578892383" rpy="0 0 0"/>
+    <mass value="0.016441075112731848"/>
+    <inertia ixx="0.000001" iyy="0.000001" izz="0.000001" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.152039 -0.1125 -0.038" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find droneis_description)/meshes/prob_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.152039 -0.1125 -0.038" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find droneis_description)/meshes/prob_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 1" type="continuous">
+  <origin xyz="0.15242 0.1125 0.038" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="prof_left_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 2" type="continuous">
+  <origin xyz="0.151692 -0.112325 0.038" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="prof_right_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 3" type="continuous">
+  <origin xyz="-0.152203 -0.112325 0.038" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="prob_right_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 4" type="continuous">
+  <origin xyz="-0.152039 0.1125 0.038" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="prob_left_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+</robot>
